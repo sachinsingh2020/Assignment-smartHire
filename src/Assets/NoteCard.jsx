@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import "./NoteCard.css";
 import { MyContext } from '../context/MyContext';
 import Modal from 'react-modal';
+import { toast } from 'react-toastify';
+
 
 const customStyles = {
     content: {
@@ -31,6 +33,7 @@ const NoteCard = ({ note }) => {
         let newNotes = oldNotes.filter(note => note.id !== noteId);
         localStorage.setItem('notes', JSON.stringify(newNotes));
         setNotes(newNotes);
+        toast.success('Note deleted successfully');
     }
 
     const editNote = (noteId) => {
@@ -55,6 +58,7 @@ const NoteCard = ({ note }) => {
                     timestamp: note.timestamp,
                 }
             }
+            toast.success('Note edited successfully');
             return note;
         });
 
