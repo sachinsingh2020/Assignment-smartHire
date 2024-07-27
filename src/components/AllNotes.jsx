@@ -33,18 +33,27 @@ const AllNotes = ({ itemsPerPage = 10 }) => {
     }
 
     return (
-        <div>
+        <div
+
+        >
             <Items notes={currentItems} />
-            <ReactPaginate
-                className='flex justify-evenly items-center  py-4 text-gray-800 font-bold bg-gray-100 p-12 bg-[#fec107] w-[50%] m-auto'
-                breakLabel="..."
-                nextLabel="next >"
-                onPageChange={handlePageClick}
-                pageRangeDisplayed={5}
-                pageCount={pageCount}
-                previousLabel="< previous"
-                renderOnZeroPageCount={null}
-            />
+            <div
+                style={{
+                    backgroundColor: '#ff9700',
+                }}
+            >
+                <ReactPaginate
+                    className='flex justify-evenly items-center  py-4 font-bold bg-gray-100 p-12  w-[50%] m-auto mb-12 '
+                    breakLabel="..."
+                    nextLabel="next >"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={5}
+                    pageCount={pageCount}
+                    previousLabel="< previous"
+                    renderOnZeroPageCount={null}
+                />
+            </div>
+
         </div>
     );
 }
