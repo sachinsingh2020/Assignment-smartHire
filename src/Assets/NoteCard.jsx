@@ -18,6 +18,20 @@ const customStyles = {
     },
 };
 
+
+const customMobileStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#e2e9ff',
+        width: '90%',
+    },
+};
+
 Modal.setAppElement('#root');
 
 const NoteCard = ({ note }) => {
@@ -87,7 +101,7 @@ const NoteCard = ({ note }) => {
 
     return (
         <div
-            className='px-3 m-4 text-gray-800 font-bold bg-gray-100 py-3 text-white rounded-lg text-center h-80 w-[30%]'
+            className='px-3 m-4 text-gray-800 font-bold bg-gray-100 py-3 text-white rounded-lg text-center h-80 w-[100%] md:w-[30%]'
             key={note.id}
 
             style={{
@@ -99,7 +113,9 @@ const NoteCard = ({ note }) => {
                     isOpen={modalIsOpen}
                     onAfterOpen={afterOpenModal}
                     onRequestClose={closeModal}
-                    style={customStyles}
+                    style={
+                        window.innerWidth > 768 ? customStyles : customMobileStyles
+                    }
                     contentLabel="Example Modal"
                 >
                     <div className='w-full'>
@@ -161,13 +177,13 @@ const NoteCard = ({ note }) => {
             <p className='italic h-[15%] overflow-hidden'>{formatDate(note.timestamp)}</p>
             <div className='h-[18%] w-full flex justify-between px-12'>
                 <button
-                    className='bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-xl px-2 py-1 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 w-[8rem]'
+                    className='bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-xl px-2 mx-1 md:mx-0 py-1 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 w-[8rem]'
                     onClick={() => deleteNote(note.id)}
                 >
                     Delete
                 </button>
                 <button
-                    className='bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xl px-2 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 w-[8rem]'
+                    className='bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xl px-2 py-1 mx-1 md:mx-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 w-[8rem]'
                     onClick={() => editNote(note.id)}
                 >
                     Edit

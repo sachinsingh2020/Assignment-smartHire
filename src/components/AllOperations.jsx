@@ -16,6 +16,19 @@ const customStyles = {
     },
 };
 
+const customMobileStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#e2e9ff',
+        width: '90%',
+    },
+};
+
 Modal.setAppElement('#root');
 
 const AllOperations = () => {
@@ -87,7 +100,7 @@ const AllOperations = () => {
     return (
         <div>
             <div
-                className='flex justify-center items-center flex-col py-4 text-gray-800 font-bold bg-gray-100 p-12 bg-[#fec107]'
+                className='flex justify-center items-center flex-col py-4 text-gray-800 font-bold bg-gray-100 p-12 bg-[#fec107] w-full'
             >
                 <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-2xl px-5 py-2.5 me-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={createNewNoteModal}>Create New Note</button>
                 <div
@@ -97,16 +110,18 @@ const AllOperations = () => {
                         isOpen={modalIsOpen}
                         onAfterOpen={afterOpenModal}
                         onRequestClose={closeModal}
-                        style={customStyles}
+                        style={
+                            window.innerWidth > 768 ? customStyles : customMobileStyles
+                        }
                         contentLabel="Example Modal"
                     >
                         <div
-                            className='w-full'
+                            className='w-100'
                         >
                             <h2 ref={(_subtitle) => (subtitle = _subtitle)}
-                                className='text-2xl flex justify-center items-center flex-col py-4 text-white font-bold  p-12 underline'
+                                className='text-2xl flex justify-center items-center flex-col py-4 text-white font-bold  md:p-12 underline'
                                 style={{
-                                    color: '#000 !important',
+                                    color: '#000 ',
                                 }}
                             >Create New Note</h2>
                             <div

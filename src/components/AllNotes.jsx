@@ -24,7 +24,7 @@ const AllNotes = ({ itemsPerPage = 10 }) => {
 
     function Items({ notes }) {
         return (
-            <div className='flex justify-center notes-center flex-wrap py-4 text-gray-800 font-bold bg-gray-100 p-12  m-8'>
+            <div className='flex justify-center notes-center flex-wrap py-4 text-gray-800 font-bold bg-gray-100 p-2 md:p-12  m-8'>
                 {notes.map((note, index) => (
                     <NoteCard key={index} note={note} />
                 ))}
@@ -43,7 +43,7 @@ const AllNotes = ({ itemsPerPage = 10 }) => {
                 }}
             >
                 <ReactPaginate
-                    className='flex justify-evenly items-center  py-4 font-bold bg-gray-100 p-12  w-[50%] m-auto mb-12 '
+                    className='flex justify-evenly items-center flex-col md:flex-row py-4 font-bold bg-gray-100 p-12  w-[50%] m-auto mb-20 md:mb-12 '
                     breakLabel="..."
                     nextLabel="next >"
                     onPageChange={handlePageClick}
