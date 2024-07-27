@@ -23,6 +23,9 @@ const Searching = () => {
         <div>
             <div
                 className='flex justify-center items-center flex-col py-4 text-gray-800 font-bold bg-gray-100 p-12 bg-[#ff9700]'
+                style={{
+                    backgroundColor: '#ff9700',
+                }}
             >
                 <input
                     type='text'

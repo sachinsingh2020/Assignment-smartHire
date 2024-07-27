@@ -83,8 +83,12 @@ const NoteCard = ({ note }) => {
 
     return (
         <div
-            className='px-3 m-4 text-gray-800 font-bold bg-gray-100 py-3 bg-[#009788] text-white rounded-lg text-center h-80 w-[30%]'
+            className='px-3 m-4 text-gray-800 font-bold bg-gray-100 py-3 text-white rounded-lg text-center h-80 w-[30%]'
             key={note.id}
+
+            style={{
+                backgroundColor: '#009788',
+            }}
         >
             <div className='w-full'>
                 <Modal
