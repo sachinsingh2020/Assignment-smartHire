@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Heading from './components/Heading.jsx'
+import AllOperations from './components/AllOperations.jsx'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { MyProvider } from './context/MyContext.jsx'
+import Searching from './components/Searching.jsx'
+import AllNotes from './components/AllNotes.jsx'
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MyProvider>
+        <Heading />
+        <AllOperations />
+        <Searching />
+        <AllNotes />
+        <ToastContainer />
+      </MyProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

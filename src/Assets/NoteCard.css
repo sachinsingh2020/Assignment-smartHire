@@ -1,0 +1,33 @@
+.custom-scroll {
+    overflow-y: auto;
+    height: calc(100% - 2rem);
+    /* Adjust based on available space */
+    max-height: 70%;
+    /* Optional, define a max height */
+}
+
+/* Optional adjustments */
+h1,
+p {
+    overflow: visible;
+}
+
+/* For Webkit browsers */
+.custom-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* For Firefox */
+.custom-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+}
